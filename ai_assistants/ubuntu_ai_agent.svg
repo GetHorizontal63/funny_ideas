@@ -1,0 +1,170 @@
+<svg viewBox="0 0 1400 1600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define styles -->
+  <defs>
+    <style>
+      .box { fill: #333333; stroke: #EA6020; stroke-width: 2; }
+      .header-box { fill: #1A1A1A; stroke: #EA6020; stroke-width: 2; }
+      .tool-box { fill: #333333; stroke: #EA6020; stroke-width: 2; }
+      .desktop-box { fill: #333333; stroke: #EA6020; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 14px; fill: #FFFFFF; }
+      .text-white { font-family: Arial, sans-serif; font-size: 14px; fill: #FFFFFF; font-weight: bold; }
+      .title { font-family: Arial, sans-serif; font-size: 16px; fill: #FFFFFF; font-weight: bold; }
+      .title-white { font-family: Arial, sans-serif; font-size: 16px; fill: #FFFFFF; font-weight: bold; }
+      .arrow { stroke: #EA6020; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .flow-arrow { stroke: #EA6020; stroke-width: 2; fill: none; marker-end: url(#arrowhead-gray); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#EA6020" />
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#EA6020" />
+    </marker>
+  </defs>
+
+  <!-- USER INTERACTION LAYER -->
+  <rect x="50" y="20" width="1300" height="140" class="header-box" rx="5"/>
+  <text x="700" y="45" text-anchor="middle" class="title-white">USER INTERACTION LAYER</text>
+  
+  <rect x="150" y="70" width="250" height="70" class="box" rx="5"/>
+  <text x="275" y="95" text-anchor="middle" class="title">Web UI</text>
+  <text x="275" y="115" text-anchor="middle" class="text">(Gradio)</text>
+  
+  <rect x="575" y="70" width="250" height="70" class="box" rx="5"/>
+  <text x="700" y="95" text-anchor="middle" class="title">CLI/REPL</text>
+  <text x="700" y="115" text-anchor="middle" class="text">Interface</text>
+  
+  <rect x="1000" y="70" width="250" height="70" class="box" rx="5"/>
+  <text x="1125" y="95" text-anchor="middle" class="title">API</text>
+  <text x="1125" y="115" text-anchor="middle" class="text">Endpoint</text>
+
+  <!-- Arrows from UI to Agent Core -->
+  <path d="M 275 140 L 275 200" class="arrow"/>
+  <path d="M 700 140 L 700 200" class="arrow"/>
+  <path d="M 1125 140 L 1125 200" class="arrow"/>
+  <path d="M 275 200 L 700 200" class="flow-arrow"/>
+  <path d="M 1125 200 L 700 200" class="flow-arrow"/>
+
+  <!-- AGENT CONTROL CORE -->
+  <rect x="50" y="220" width="1300" height="400" class="header-box" rx="5"/>
+  <text x="700" y="245" text-anchor="middle" class="title-white">AGENT CONTROL CORE</text>
+  
+  <!-- Agent Orchestrator -->
+  <rect x="100" y="270" width="1200" height="140" class="box" rx="5"/>
+  <text x="700" y="290" text-anchor="middle" class="title">AGENT ORCHESTRATOR</text>
+  
+  <rect x="200" y="310" width="250" height="70" class="tool-box" rx="5"/>
+  <text x="325" y="340" text-anchor="middle" class="text">Task Parser</text>
+  
+  <rect x="575" y="310" width="250" height="70" class="tool-box" rx="5"/>
+  <text x="700" y="340" text-anchor="middle" class="text">Action Planner</text>
+  
+  <rect x="950" y="310" width="250" height="70" class="tool-box" rx="5"/>
+  <text x="1075" y="340" text-anchor="middle" class="text">Tool Selector</text>
+  
+  <path d="M 450 345 L 575 345" class="flow-arrow"/>
+  <path d="M 825 345 L 950 345" class="flow-arrow"/>
+  
+  <!-- Memory -->
+  <rect x="250" y="440" width="900" height="60" class="box" rx="5"/>
+  <text x="700" y="465" text-anchor="middle" class="title">CONVERSATION MEMORY</text>
+  <text x="700" y="485" text-anchor="middle" class="text">(Context Window + SQLite/Redis History)</text>
+
+  <!-- LLM Engine -->
+  <rect x="200" y="530" width="1000" height="70" class="box" rx="5"/>
+  <text x="700" y="555" text-anchor="middle" class="title">LLM INFERENCE ENGINE - OLLAMA (Local Server)</text>
+  <text x="700" y="580" text-anchor="middle" class="text">Model: Llama 3.2 90B Vision or Qwen 2.5 72B</text>
+
+  <!-- Arrow from Agent to Tools -->
+  <path d="M 700 620 L 700 680" class="arrow"/>
+
+  <!-- TOOLS LAYER -->
+  <rect x="150" y="680" width="300" height="100" class="tool-box" rx="5"/>
+  <text x="300" y="705" text-anchor="middle" class="title">VISION TOOL</text>
+  <text x="300" y="730" text-anchor="middle" class="text">• Screenshot capture</text>
+  <text x="300" y="750" text-anchor="middle" class="text">• Base64 encode</text>
+  <text x="300" y="770" text-anchor="middle" class="text">• Feed to LLM</text>
+
+  <rect x="550" y="680" width="300" height="100" class="tool-box" rx="5"/>
+  <text x="700" y="705" text-anchor="middle" class="title">ACTION TOOL</text>
+  <text x="700" y="730" text-anchor="middle" class="text">• Mouse control</text>
+  <text x="700" y="750" text-anchor="middle" class="text">• Keyboard input</text>
+  <text x="700" y="770" text-anchor="middle" class="text">• Click coordinates</text>
+
+  <rect x="950" y="680" width="300" height="100" class="tool-box" rx="5"/>
+  <text x="1100" y="705" text-anchor="middle" class="title">BASH TOOL</text>
+  <text x="1100" y="730" text-anchor="middle" class="text">• Execute commands</text>
+  <text x="1100" y="750" text-anchor="middle" class="text">• File operations</text>
+  <text x="1100" y="770" text-anchor="middle" class="text">• App launch</text>
+
+  <!-- Arrows to Desktop Layer -->
+  <path d="M 300 780 L 300 850" class="arrow"/>
+  <path d="M 700 780 L 700 850" class="arrow"/>
+  <path d="M 1100 780 L 1100 850" class="arrow"/>
+
+  <!-- DESKTOP CONTROL LAYER -->
+  <rect x="50" y="850" width="1300" height="200" class="desktop-box" rx="5"/>
+  <text x="700" y="875" text-anchor="middle" class="title">DESKTOP CONTROL LAYER</text>
+
+  <rect x="150" y="900" width="280" height="120" class="box" rx="5"/>
+  <text x="290" y="925" text-anchor="middle" class="title">SCREEN CAPTURE</text>
+  <text x="290" y="950" text-anchor="middle" class="text">• scrot / grim</text>
+  <text x="290" y="970" text-anchor="middle" class="text">• Screenshot</text>
+  <text x="290" y="990" text-anchor="middle" class="text">• Encode base64</text>
+  <text x="290" y="1010" text-anchor="middle" class="text">• Feed to LLM</text>
+
+  <rect x="560" y="900" width="280" height="120" class="box" rx="5"/>
+  <text x="700" y="925" text-anchor="middle" class="title">INPUT CONTROL</text>
+  <text x="700" y="950" text-anchor="middle" class="text">• xdotool / ydotool</text>
+  <text x="700" y="970" text-anchor="middle" class="text">• Mouse move/click</text>
+  <text x="700" y="990" text-anchor="middle" class="text">• Keyboard type</text>
+  <text x="700" y="1010" text-anchor="middle" class="text">• Coordinates</text>
+
+  <rect x="970" y="900" width="280" height="120" class="box" rx="5"/>
+  <text x="1110" y="925" text-anchor="middle" class="title">SYSTEM CONTROL</text>
+  <text x="1110" y="950" text-anchor="middle" class="text">• subprocess</text>
+  <text x="1110" y="970" text-anchor="middle" class="text">• Execute commands</text>
+  <text x="1110" y="990" text-anchor="middle" class="text">• File operations</text>
+  <text x="1110" y="1010" text-anchor="middle" class="text">• App launch</text>
+
+  <!-- Arrow to Desktop -->
+  <path d="M 700 1050 L 700 1100" class="arrow"/>
+
+  <!-- UBUNTU DESKTOP -->
+  <rect x="50" y="1100" width="1300" height="250" class="header-box" rx="5"/>
+  <text x="700" y="1125" text-anchor="middle" class="title-white">UBUNTU DESKTOP ENVIRONMENT</text>
+
+  <rect x="150" y="1150" width="1100" height="60" class="desktop-box" rx="5"/>
+  <text x="700" y="1175" text-anchor="middle" class="text">Xvfb (Virtual Display) :99 OR Real X11/Wayland Display :0</text>
+
+  <rect x="150" y="1240" width="180" height="80" class="box" rx="5"/>
+  <text x="240" y="1285" text-anchor="middle" class="text">Firefox</text>
+
+  <rect x="380" y="1240" width="180" height="80" class="box" rx="5"/>
+  <text x="470" y="1285" text-anchor="middle" class="text">Terminal</text>
+
+  <rect x="610" y="1240" width="180" height="80" class="box" rx="5"/>
+  <text x="700" y="1285" text-anchor="middle" class="text">LibreOffice</text>
+
+  <rect x="840" y="1240" width="180" height="80" class="box" rx="5"/>
+  <text x="930" y="1285" text-anchor="middle" class="text">VS Code</text>
+
+  <rect x="1070" y="1240" width="180" height="80" class="box" rx="5"/>
+  <text x="1160" y="1285" text-anchor="middle" class="text">Apps</text>
+
+  <!-- EXECUTION LOOP -->
+  <rect x="50" y="1400" width="1300" height="180" class="tool-box" rx="5"/>
+  <text x="700" y="1425" text-anchor="middle" class="title">AGENT EXECUTION LOOP</text>
+  
+  <text x="100" y="1455" class="text">1. User Query → Agent Orchestrator</text>
+  <text x="100" y="1480" class="text">2. Take Screenshot (Vision Tool)</text>
+  <text x="100" y="1505" class="text">3. LLM Analyzes Screen + Plans Action</text>
+  <text x="100" y="1530" class="text">4. Execute Action (Click/Type/Bash)</text>
+  
+  <text x="800" y="1455" class="text">5. Take New Screenshot</text>
+  <text x="800" y="1480" class="text">6. Evaluate Result → Continue/Complete</text>
+  <text x="800" y="1505" class="text">7. Return Response to User</text>
+  
+  <!-- Loop arrow -->
+  <path d="M 650 1560 Q 700 1520, 750 1560" class="arrow" stroke-dasharray="5,5"/>
+
+</svg>
